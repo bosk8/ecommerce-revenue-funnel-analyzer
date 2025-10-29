@@ -2,9 +2,9 @@
 -- Identifies SKUs with low cart-to-purchase conversion rates
 -- Uses RANK() window function and QUALIFY clause
 
--- Load funnel_steps if not already loaded
+-- Load funnel_steps if not already loaded (path resolved relative to project root)
 CREATE TABLE IF NOT EXISTS funnel_steps AS
-SELECT * FROM read_csv_auto('artifacts/funnel_steps.csv');
+SELECT * FROM read_csv_auto('artifacts/funnel_steps.csv', header=true);
 
 WITH carted AS (
   SELECT sku, COUNT(*) AS carts

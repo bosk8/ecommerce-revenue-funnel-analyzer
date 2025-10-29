@@ -3,10 +3,13 @@ Utility functions and constants for the e-commerce funnel analyzer.
 """
 import pathlib as p
 
-# Path constants
-RAW = p.Path("data/raw")
-INTERIM = p.Path("data/interim")
-ARTIFACTS = p.Path("artifacts")
+# Get project root directory (parent of src/)
+PROJECT_ROOT = p.Path(__file__).parent.parent.resolve()
+
+# Path constants (relative to project root)
+RAW = PROJECT_ROOT / "data" / "raw"
+INTERIM = PROJECT_ROOT / "data" / "interim"
+ARTIFACTS = PROJECT_ROOT / "artifacts"
 
 # Ensure directories exist
 RAW.mkdir(parents=True, exist_ok=True)
