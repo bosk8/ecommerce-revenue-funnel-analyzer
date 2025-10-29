@@ -1,0 +1,44 @@
+# Raw data files (not committed)
+data/raw/*
+!data/raw/.gitkeep
+
+# Generated artifacts
+artifacts/*
+!artifacts/.gitkeep
+
+# Python virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Parquet files (interim data)
+data/interim/*.parquet
+!data/interim/.gitkeep
+
+# Environment variables
+.env
+.env.local
+
