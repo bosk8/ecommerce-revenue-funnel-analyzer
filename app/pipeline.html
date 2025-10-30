@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pipeline · E-Commerce Revenue Funnel Analyzer</title>
+  <link rel="stylesheet" href="./bosk8.css" />
+  <script src="./app.js" defer></script>
+  <script src="./api.js" defer></script>
+</head>
+<body>
+  <main class="bosk8">
+    <div class="container">
+      <nav class="card nav-header" style="padding: var(--space-1);">
+        <div class="nav-links">
+          <a href="./index.html" class="nav-link">HOME</a>
+          <a href="./pipeline.html" class="nav-link">PIPELINE</a>
+          <a href="./analytics.html" class="nav-link">ANALYTICS</a>
+          <a href="./artifacts.html" class="nav-link">ARTIFACTS</a>
+          <a href="./style.html" class="nav-link">STYLE</a>
+        </div>
+      </nav>
+
+      <section class="card" style="padding: var(--space-1); margin-bottom: var(--space-1);">
+        <div class="meta-md" style="margin-bottom: var(--space-1);">RUN ETL</div>
+        <div class="meta-sm" style="color: var(--text-subtle); margin-bottom: var(--space-1);">Ensure data/raw/events.csv exists before running.</div>
+        <div style="display:flex; gap: var(--space-1); flex-wrap: wrap; align-items:center;">
+          <button id="run-etl-btn" class="btn btn-primary" aria-live="polite" title="Run ETL Pipeline">
+            <span>RUN</span>
+          </button>
+          <div class="status info" id="etl-status">Click RUN to execute the ETL pipeline.</div>
+        </div>
+      </section>
+
+      <section id="pipeline-summary" class="card" style="padding: var(--space-1);">
+        <div class="meta-md" style="margin-bottom: var(--space-1);">LAST RUN SUMMARY</div>
+        <div class="meta-sm" style="color: var(--text-subtle); margin-bottom: var(--space-0_5);">
+          Events: <span data-metric="events">—</span> · Steps: <span data-metric="steps">—</span> · Sessions: <span data-metric="sessions">—</span>
+        </div>
+        <div class="meta-sm" style="color: var(--text-subtle);">
+          View→Cart: <span data-metric="view-to-cart">—</span> · Cart→Purchase: <span data-metric="cart-to-purchase">—</span>
+        </div>
+        <div style="margin-top: var(--space-1);">
+          <a href="./analytics.html" class="link">→ CONTINUE TO ANALYTICS</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

@@ -97,3 +97,108 @@ main.bosk8 {
 .faq-a.active { display: block; }
 
 :focus-visible { outline: 2px solid var(--border-color); outline-offset: 2px; }
+
+/* Navigation */
+.nav-header { 
+  margin-bottom: var(--space-1); 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  gap: var(--space-1);
+}
+.nav-links { 
+  display: flex; 
+  gap: var(--space-1); 
+  flex-wrap: wrap;
+}
+.nav-link { 
+  color: var(--text-muted); 
+  text-decoration: none; 
+  transition: color .15s;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+.nav-link:hover { color: var(--text-primary); }
+.nav-link.active { color: var(--text-primary); font-weight: 500; }
+
+/* Button styles (derived from tokens) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-0_75);
+  padding: var(--space-0_75) var(--space-1);
+  background: transparent;
+  border: var(--border-w) solid var(--border-color);
+  border-radius: var(--r-sm);
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all .15s;
+}
+.btn:hover:not(:disabled) {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--border-color);
+  outline-offset: 2px;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--surface-card);
+  border-color: var(--border-color);
+}
+
+/* Status messages */
+.status {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  margin-top: var(--space-0_75);
+}
+.status.success { color: var(--accent-success); }
+.status.error { color: #ef4444; }
+.status.info { color: var(--text-subtle); }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: var(--space-2) var(--space-1);
+}
+.empty-state .meta-md {
+  margin-bottom: var(--space-1);
+}
+.empty-state .meta-sm {
+  color: var(--text-subtle);
+  margin-bottom: var(--space-1_5);
+}
+
+/* Loading spinner (optional - simple implementation) */
+.loading {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--text-primary);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Ensure buttons meet touch target minimum */
+@media (max-width: 767px) {
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: var(--space-1) var(--space-1_5);
+  }
+}

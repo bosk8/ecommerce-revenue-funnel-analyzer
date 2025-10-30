@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Artifacts · E-Commerce Revenue Funnel Analyzer</title>
+  <link rel="stylesheet" href="./bosk8.css" />
+  <script src="./app.js" defer></script>
+  <script src="./api.js" defer></script>
+</head>
+<body>
+  <main class="bosk8">
+    <div class="container">
+      <nav class="card nav-header" style="padding: var(--space-1);">
+        <div class="nav-links">
+          <a href="./index.html" class="nav-link">HOME</a>
+          <a href="./pipeline.html" class="nav-link">PIPELINE</a>
+          <a href="./analytics.html" class="nav-link">ANALYTICS</a>
+          <a href="./artifacts.html" class="nav-link">ARTIFACTS</a>
+          <a href="./style.html" class="nav-link">STYLE</a>
+        </div>
+      </nav>
+
+      <section class="card" style="padding: var(--space-1);">
+        <div class="meta-md" style="margin-bottom: var(--space-1);">ARTIFACTS</div>
+        <div class="meta-sm" style="color: var(--text-subtle); margin-bottom: var(--space-1);">Click copy icon to copy file path to clipboard.</div>
+        <div id="artifacts-list" style="display:grid; gap: var(--space-0_75);">
+          <div data-artifact="funnel_session.csv" style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-0_75);" class="border-b">
+            <span class="meta-sm" style="color: var(--text-muted);">artifacts/funnel_session.csv <span data-count>—</span></span>
+            <button class="copy-btn" data-copy="artifacts/funnel_session.csv" aria-label="Copy path">
+              <span class="copy-icon">⧉</span>
+              <span class="check-icon" style="display:none;">✓</span>
+            </button>
+          </div>
+          <div data-artifact="funnel_steps.csv" style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-0_75);" class="border-b">
+            <span class="meta-sm" style="color: var(--text-muted);">artifacts/funnel_steps.csv <span data-count>—</span></span>
+            <button class="copy-btn" data-copy="artifacts/funnel_steps.csv" aria-label="Copy path">
+              <span class="copy-icon">⧉</span>
+              <span class="check-icon" style="display:none;">✓</span>
+            </button>
+          </div>
+          <div data-artifact="sku_dropoff.csv" style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-0_75);" class="border-b">
+            <span class="meta-sm" style="color: var(--text-muted);">artifacts/sku_dropoff.csv <span data-count>—</span></span>
+            <button class="copy-btn" data-copy="artifacts/sku_dropoff.csv" aria-label="Copy path">
+              <span class="copy-icon">⧉</span>
+              <span class="check-icon" style="display:none;">✓</span>
+            </button>
+          </div>
+          <div data-artifact="cohort_retention.csv" style="display:flex; justify-content:space-between; align-items:center; padding: var(--space-0_75);">
+            <span class="meta-sm" style="color: var(--text-muted);">artifacts/cohort_retention.csv <span data-count>—</span></span>
+            <button class="copy-btn" data-copy="artifacts/cohort_retention.csv" aria-label="Copy path">
+              <span class="copy-icon">⧉</span>
+              <span class="check-icon" style="display:none;">✓</span>
+            </button>
+          </div>
+        </div>
+        <div id="artifacts-empty" class="empty-state" style="display: none;">
+          <div class="meta-md" style="margin-bottom: var(--space-1);">NO ARTIFACTS</div>
+          <div class="meta-sm" style="color: var(--text-subtle); margin-bottom: var(--space-1_5);">
+            No artifacts found. Run pipeline and analytics first.
+          </div>
+          <div style="display: flex; gap: var(--space-1); flex-wrap: wrap; justify-content: center;">
+            <a href="./pipeline.html" class="link">→ RUN PIPELINE</a>
+            <a href="./analytics.html" class="link">→ RUN ANALYTICS</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

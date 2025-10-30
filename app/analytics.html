@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytics · E-Commerce Revenue Funnel Analyzer</title>
+  <link rel="stylesheet" href="./bosk8.css" />
+  <script src="./app.js" defer></script>
+  <script src="./api.js" defer></script>
+</head>
+<body>
+  <main class="bosk8">
+    <div class="container">
+      <nav class="card nav-header" style="padding: var(--space-1);">
+        <div class="nav-links">
+          <a href="./index.html" class="nav-link">HOME</a>
+          <a href="./pipeline.html" class="nav-link">PIPELINE</a>
+          <a href="./analytics.html" class="nav-link">ANALYTICS</a>
+          <a href="./artifacts.html" class="nav-link">ARTIFACTS</a>
+          <a href="./style.html" class="nav-link">STYLE</a>
+        </div>
+      </nav>
+
+      <section class="card" style="padding: var(--space-1); margin-bottom: var(--space-1);">
+        <div class="meta-md" style="margin-bottom: var(--space-1);">RUN ANALYTICS</div>
+        <div class="meta-sm" style="color: var(--text-subtle); margin-bottom: var(--space-1);">Requires artifacts/funnel_steps.csv (run pipeline first).</div>
+        <div style="display:flex; gap: var(--space-1); flex-wrap: wrap; align-items:center;">
+          <button id="run-analytics-btn" class="btn btn-primary" aria-live="polite" title="Run Analytics Queries">
+            <span>RUN</span>
+          </button>
+          <div class="status info" id="analytics-status">Click RUN to execute analytics queries.</div>
+        </div>
+      </section>
+
+      <section class="card" style="padding: var(--space-1);">
+        <div class="meta-md" style="margin-bottom: var(--space-1);">EXPORTS</div>
+        <div class="meta-sm" style="color: var(--text-subtle); margin-bottom: var(--space-0_5);">
+          <span data-export="sku_dropoff">sku_dropoff.csv — rows: —</span>
+        </div>
+        <div class="meta-sm" style="color: var(--text-subtle);">
+          <span data-export="cohort_retention">cohort_retention.csv — rows: —</span>
+        </div>
+        <div style="margin-top: var(--space-1);">
+          <a href="./artifacts.html" class="link">→ VIEW ALL ARTIFACTS</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
