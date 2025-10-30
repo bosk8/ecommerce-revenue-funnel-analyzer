@@ -3,7 +3,6 @@ Execute analytics SQL queries and export results to artifacts.
 """
 import sys
 import duckdb
-import pathlib as p
 from utils import ARTIFACTS, PROJECT_ROOT
 
 
@@ -29,39 +28,24 @@ def run_sql_query(sql_file, output_file):
     try:
         con = duckdb.connect(database=":memory:")
         
+        # Load funnel_steps.csv into a table
+        funnel_steps_path = ARTIFACTS / "funnel_steps.csv"
+        con.execute(f"CREATE TABLE funnel_steps AS SELECT * FROM read_csv_auto('{funnel_steps_path}', header=true);")
+
         # Read SQL file
         with open(sql_path, 'r', encoding='utf-8') as f:
-            sql = f.read()
-        
-        # Split into statements (separated by semicolons)
-        statements = [s.strip() for s in sql.split(';') if s.strip() and not s.strip().startswith('--')]
-        
-        if not statements:
-            raise ValueError(f"SQL file {sql_file} is empty or contains no valid statements")
-        
-        # Execute setup statements (CREATE TABLE, etc.)
-        for stmt in statements[:-1]:
-            if stmt:
-                # Update path references to use absolute paths
-                stmt = stmt.replace("'artifacts/", f"'{ARTIFACTS}/")
-                con.execute(stmt)
-        
-        # Last statement should be the SELECT query
-        select_query = statements[-1] if statements else ""
-        
-        if not select_query:
-            raise ValueError(f"SQL file {sql_file} contains no SELECT query")
+            sql = f.read().strip().rstrip(';')
         
         # Execute query and export (escape single quotes in path for SQL)
         output_path_escaped = str(output_path).replace("'", "''")
         con.execute(f"""
         COPY (
-            {select_query}
+            {sql}
         ) TO '{output_path_escaped}' (HEADER, DELIMITER ',');
         """)
         
         # Get row count
-        result = con.execute(f"SELECT COUNT(*) FROM ({select_query})").fetchone()
+        result = con.execute(f"SELECT COUNT(*) FROM ({sql})").fetchone()
         print(f"✅ Exported {result[0]} rows to {output_path}")
         
     except duckdb.Error as e:

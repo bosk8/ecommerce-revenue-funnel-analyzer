@@ -31,7 +31,7 @@ Find and quantify revenue leakage from **view → add-to-cart → purchase** con
 
 3. **Install dependencies**
    ```bash
-   pip install -r env/requirements.txt
+   pip install -r requirements.txt
    ```
 
 4. **Acquire data** (see Data Acquisition section below)
@@ -69,7 +69,10 @@ ecom-funnel/
 ├─ src/
 │  ├─ etl_funnel.py           # Main ETL pipeline
 │  └─ utils.py                # Helper functions
-├─ env/requirements.txt       # Python dependencies
+├─ tests/
+│  ├─ test_etl_funnel.py      # Tests for ETL pipeline
+│  └─ test_run_analytics.py   # Tests for analytics queries
+├─ requirements.txt           # Python dependencies
 └─ README.md                  # This file
 ```
 
@@ -157,6 +160,34 @@ Check your source data and adjust the ETL script if needed.
 - Verify `data/raw/` directory exists
 - Ensure CSV files are placed in `data/raw/` (not subdirectories)
 - Check file names match expected patterns (e.g., `events.csv`)
+
+## Testing and Quality Assurance
+
+This project uses `pytest` for testing, `ruff` for linting, and `mypy` for type checking.
+
+### Running the Tests
+
+To run the tests, use the following command:
+
+```bash
+pytest
+```
+
+### Running the Linter
+
+To run the linter, use the following command:
+
+```bash
+ruff check src tests
+```
+
+### Running the Type Checker
+
+To run the type checker, use the following command:
+
+```bash
+mypy src tests --ignore-missing-imports
+```
 
 ## Tableau Dashboard Publishing
 

@@ -10,8 +10,7 @@ This script:
 """
 import sys
 import duckdb
-import pathlib as p
-from utils import ARTIFACTS, get_events_file, validate_data_directory, PROJECT_ROOT
+from utils import ARTIFACTS, get_events_file, validate_data_directory
 
 
 def main():
@@ -136,7 +135,7 @@ def main():
             print(f"  Cart-to-purchase rate: {cart_to_purchase:.2f}% ({purchases:,}/{carts:,})")
         
         # Print summary
-        print(f"\n✅ Pipeline complete!")
+        print("\n✅ Pipeline complete!")
         print(f"Artifacts exported to: {ARTIFACTS}")
         
     except FileNotFoundError as e:
