@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pipeline · Bosk8 UI</title>
+  <link rel="stylesheet" href="./bosk8.css" />
+</head>
+<body>
+  <main class="bosk8">
+    <div class="container">
+      <section class="card" style="padding: var(--space-1); margin-bottom: var(--space-1);">
+        <div class="meta-md" style="margin-bottom: var(--space-1);">RUN ETL</div>
+        <div class="meta-sm" style="color: var(--text-subtle); margin-bottom: var(--space-1);">Ensure data/raw/events.csv exists before running.</div>
+        <div style="display:flex; gap: var(--space-1); flex-wrap: wrap; align-items:center;">
+          <button class="copy-btn" aria-live="polite" title="Run">
+            <span class="label">RUN</span>
+          </button>
+          <span class="meta-sm" style="color: var(--text-dim);">Loading, success, and error states are visual-only in this static prototype.</span>
+        </div>
+      </section>
+
+      <section class="card" style="padding: var(--space-1);">
+        <div class="meta-md" style="margin-bottom: var(--space-1);">LAST RUN SUMMARY</div>
+        <div class="meta-sm" style="color: var(--text-subtle);">Events: — · Steps: — · Sessions: —</div>
+        <div class="meta-sm" style="color: var(--text-subtle);">View→Cart: — · Cart→Purchase: —</div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
